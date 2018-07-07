@@ -1,0 +1,6 @@
+void handle_cuda_error(cudaError_t  err);
+dim3 get_optimal_blocks(size_t width, size_t height);
+__global__ void greyscale(const byte_t* channels, const size_t width, const size_t height, float* output);
+__global__ void float_to_byte(const float* float_greyscale, size_t width, size_t height, byte_t* byte_greyscale);
+__global__ void apply_kernel(const float* image, size_t width, size_t height, const float* kernel, size_t kernel_width, size_t kernel_height, float* out);
+__global__ void compute_G(const float* G_x, const float* G_y, size_t width, size_t height, float* G);
